@@ -1,0 +1,17 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /consumer
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+  tomcat:
+    remote-ip-header: x-forward-for
+    uri-encoding: UTF-8
+    max-threads: 1000
+    max-http-header-size: 8192
+
+spring:
+  application:
+    name: defaultConsumer
