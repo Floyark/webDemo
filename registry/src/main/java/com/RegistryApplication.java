@@ -3,15 +3,13 @@ package com;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-@EnableEurekaClient
-@EnableFeignClients
+@EnableEurekaServer
 @SpringBootApplication(exclude = {GsonAutoConfiguration.class})
-public class ConsumerApplication {
+public class RegistryApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class, args);
+        SpringApplication.run(RegistryApplication.class, args);
     }
 }

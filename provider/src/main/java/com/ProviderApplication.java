@@ -9,9 +9,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableEurekaClient
 @EnableFeignClients
 @SpringBootApplication(exclude = {GsonAutoConfiguration.class})
-public class ConsumerApplication {
+public class ProviderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApplication.class, args);
+        SpringApplication.run(ProviderApplication.class, args);
     }
 }

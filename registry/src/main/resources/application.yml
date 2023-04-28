@@ -1,0 +1,26 @@
+server:
+  port: 1011
+  servlet:
+#    context-path: /register
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+  tomcat:
+    remote-ip-header: x-forward-for
+    uri-encoding: UTF-8
+    max-threads: 1000
+    max-http-header-size: 8192
+
+spring:
+  application:
+    name: defaultRegister
+
+eureka:
+  server:
+    enable-self-preservation: false
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://localhost:1011/eureka/

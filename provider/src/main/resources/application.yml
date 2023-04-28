@@ -1,7 +1,7 @@
 server:
-  port: 8088
+  port: 9099
   servlet:
-    context-path: /consumer
+    context-path: /provider
     encoding:
       charset: utf-8
       force: true
@@ -14,7 +14,7 @@ server:
 
 spring:
   application:
-    name: defaultConsumer
+    name: defaultProvider
 
 eureka:
   client:
@@ -22,15 +22,4 @@ eureka:
     fetch-registry: true
     serviceUrl:
       defaultZone: http://localhost:1011/eureka/
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-          - info
-          - beans
-          - health
 
-Feign:
-  hystrix:
-    enabled: true
