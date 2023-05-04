@@ -1,0 +1,12 @@
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:1011/eureka/
+
+logging:
+  root:
+    level: info
+  config: classpath:logback.xml

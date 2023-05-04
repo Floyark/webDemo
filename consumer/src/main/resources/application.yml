@@ -15,13 +15,9 @@ server:
 spring:
   application:
     name: defaultConsumer
+  profiles:
+    active: dev
 
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    serviceUrl:
-      defaultZone: http://localhost:1011/eureka/
 management:
   endpoints:
     web:
