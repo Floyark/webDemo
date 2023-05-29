@@ -1,0 +1,13 @@
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://182.42.125.14:1011/eureka/
+  instance:
+    prefer-ip-address: true
+logging:
+  root:
+    level: info
+  config: classpath:logback.xml

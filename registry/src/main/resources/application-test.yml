@@ -1,0 +1,11 @@
+
+eureka:
+  server:
+    enable-self-preservation: false
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://182.42.125.14:1011/eureka/
+  instance:
+    prefer-ip-address: true

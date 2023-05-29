@@ -15,12 +15,5 @@ server:
 spring:
   application:
     name: defaultRegister
-
-eureka:
-  server:
-    enable-self-preservation: false
-  client:
-    fetch-registry: false
-    register-with-eureka: false
-    serviceUrl:
-      defaultZone: http://localhost:1011/eureka/
+  profiles:
+    active: dev
