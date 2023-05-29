@@ -1,0 +1,49 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /gateway
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+  tomcat:
+    remote-ip-header: x-forward-for
+    uri-encoding: UTF-8
+    max-threads: 1000
+    max-http-header-size: 8192
+
+spring:
+  application:
+    name: defaultGateway
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: auth
+          uri: lb://defaultAuth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@remoteAddrKeyResolver}'
+                redis-rate-limiter.replenishRate: 2
+                redis-rate-limiter.burstCapacity: 20
+            - name: Hystrix
+              args:
+                name: fallbackcmd
+                fallbackUri: 'forward:/fallback'
+
+hystrix:
+    command:
+      default:
+        execution:
+          timeout:
+            enable: true
+          isolation:
+            thread:
+              timeoutInMilliseconds: 5000
