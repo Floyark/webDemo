@@ -7,7 +7,6 @@ eureka:
       defaultZone: http://localhost:1011/eureka/
   instance:
     instance-id: ${spring.application.name}:${server.port}
-    prefer-ip-address: true
 logging:
   root:
     level: info
