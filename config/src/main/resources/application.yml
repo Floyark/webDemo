@@ -1,0 +1,36 @@
+server:
+  port: 3333
+  servlet:
+#    context-path: /config
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+  tomcat:
+    remote-ip-header: x-forward-for
+    uri-encoding: UTF-8
+    max-threads: 1000
+    max-http-header-size: 8192
+
+spring:
+  application:
+    name: defaultConfig
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config/
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:1011/eureka/
+
+logging:
+  root:
+    level: info
+  config: classpath:logback.xml
