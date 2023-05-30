@@ -12,11 +12,6 @@ server:
     max-threads: 1000
     max-http-header-size: 8192
 
-spring:
-  application:
-    name: defaultConsumer
-  profiles:
-    active: dev
 
 management:
   endpoints:

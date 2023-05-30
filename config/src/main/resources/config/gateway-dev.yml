@@ -1,0 +1,4 @@
+logging:
+  root:
+    level: info
+  config: classpath:logback.xml

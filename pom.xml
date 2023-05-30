@@ -13,6 +13,7 @@
         <module>provider</module>
         <module>registry</module>
         <module>gateway</module>
+        <module>config</module>
     </modules>
     <packaging>pom</packaging>
 

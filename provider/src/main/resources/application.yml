@@ -12,10 +12,4 @@ server:
     max-threads: 1000
     max-http-header-size: 8192
 
-spring:
-  application:
-    name: defaultProvider
-  profiles:
-    active: dev
-
 

@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>consumer</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>config</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -18,29 +17,31 @@
     </properties>
 
     <dependencies>
+        <!--配置中心 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+        <!--eureka 客户端 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <!--排除tomcat依赖 -->
+                <exclusion>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <!--undertow容器 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
     </dependencies>
 
@@ -59,7 +60,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.ConsumerApplication</mainClass>
+                    <mainClass>com.ConfigApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>

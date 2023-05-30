@@ -13,10 +13,6 @@ server:
     max-http-header-size: 8192
 
 spring:
-  application:
-    name: defaultGateway
-  profiles:
-    active: dev
   cloud:
     gateway:
       discovery:
@@ -24,7 +20,7 @@ spring:
           enabled: true
       routes:
         - id: consumer
-          uri: lb://defaultConsumer
+          uri: lb://consumer
           predicates:
             - Path=/consumer/**
           filters:
